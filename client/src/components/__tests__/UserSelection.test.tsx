@@ -18,4 +18,9 @@ describe("renders selection radio buttons", () => {
         const admin = component.getByTestId("admin");
         expect(admin).toHaveAttribute("checked");
     })
+    it("Match Snapshot", ()=>{
+        const handleUserType = (event: React.ChangeEvent<HTMLInputElement>) => {};
+        const component = render(<UserSelection userType="Admin" onUserTypeChange={handleUserType} /> );
+        expect(component).toMatchSnapshot();
+    })
 })
