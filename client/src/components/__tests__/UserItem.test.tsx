@@ -8,4 +8,8 @@ describe("Creates a card with a user avatar, name and role", () => {
         expect(card.getByTestId('name').textContent).toBe('Jim James');
         expect(card.getByTestId('role').textContent).toBe('Manager');
     })
+    it("Tests snapshot", () =>{
+        const card = render(<UserItem name="Jim James" role="Manager" /> );
+        expect(card).toMatchSnapshot();
+    })
 })
