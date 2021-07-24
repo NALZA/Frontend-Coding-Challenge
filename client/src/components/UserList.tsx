@@ -1,11 +1,18 @@
 import { useQuery } from '@apollo/client'
 import React from 'react'
+import styled from 'styled-components'
 import { ListZellerCustomers } from '../graphql/queries'
 import { UserItem } from './UserItem'
 
 interface Props {
     userType: string,
 }
+
+const UserHolder = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+`;
 
 export const UserList = (props: Props) => {
     interface User {
@@ -29,9 +36,9 @@ export const UserList = (props: Props) => {
     return (
         <div>
             <h2 data-testid="usertype">{props.userType} Users</h2>
-            <div>
+            <UserHolder>
                 {users}
-            </div>
+            </UserHolder>
         </div>
     )
 }

@@ -2,8 +2,8 @@ import { render} from '@testing-library/react';
 import { UserList } from '../UserList';
 import { MockedProvider } from "@apollo/client/testing";
 import { ListZellerCustomers } from '../../graphql/queries';
-import TestRenderer from 'react-test-renderer'
-import { GraphQLError } from 'graphql';
+import TestRenderer from 'react-test-renderer';
+import 'jest-styled-components'
 
 const mocks = [
     {
@@ -74,5 +74,14 @@ describe("User list holder", () => {
             await new Promise(resolve => setTimeout(resolve, 0));
             const p = component.root.findByType('p');
             expect(p.children.join('')).toContain('Not found');
+    })
+    it("Test snapshot", async () => {
+      const component = render(
+            <MockedProvider mocks={mocks} addTypename={false}>
+                <UserList userType='Admin'/>
+            </MockedProvider>,  
+            );
+      await new Promise(resolve => setTimeout(resolve, 0));
+      expect(component).toMatchSnapshot();
     })
 })
