@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Libraries used.
+
+### React, Typescript Apollo Client, Graphql, Styled Components, Jest, React-testing-library, Cypress 
+
 ## Available Scripts
 
 In the project directory, you can run:
